@@ -1,12 +1,14 @@
 <template>
     <main>
+        <h2 class="text-center">Movie</h2>
         <section class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" v-for="(item, index) in store.characterList" :key="item.id">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" v-for="(item, index) in store.moviesList" :key="item.id">
                 <CardComponent :movie="item"/>
             </div>
         </section>
 
-        <section>
+        <h2 class="text-center m-5">Series</h2>
+        <section class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" v-for="(item, index) in store.seriesList" :key="item.id">
                 <SeriesComponent :series="item"/>
             </div>
@@ -37,6 +39,7 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
+
 
 
 </style>

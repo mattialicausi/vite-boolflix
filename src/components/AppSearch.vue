@@ -1,6 +1,6 @@
 <template>
     <section class="p-3" @keyup="changeFlag">
-        <form class="d-flex justify-content-center" @submit.prevent="searchMovie">
+        <form class="d-flex justify-content-center" @submit.prevent="filterAPI">
             <div class="container-input">
                 <label for="charactername">Search by name</label>
                 <input type="text" name="input-search-name" id="input-search-name" placeholder="Search name..." v-model.trim="search">
@@ -26,39 +26,24 @@
 
                 search: '',
 
-                //state: '',
+                state: '',
             }
         },
 
         methods: {
-            searchMovie() {
+            filterAPI() {
                 const search = this.search;
                 store.params = this.search;
-                store.getCharacters();
+                store.getMovies();
                 store.flagFilter = true;
-                console.log('click su searchmovie')
+
+                //FILTRO API DELLE SERIE
                 
-
-
-                //const search = this.search;
                 store.seriesParams = this.search;
                 store.getSeries();
                 store.seriesFlag = true;
-                console.log('click su searchSeries')
 
-
-                // const state = {...this.state};
-                // store.stateParams = this.state;
-                // store.getStateFlag();
-
-                // console.log('click su searchStateFlag');
-
-            }
-        },
-
-        searchSeries() {
-
-
+                //AGGIUNGO FLAG DA API
 
                 // const state = {...this.state};
                 // store.stateParams = this.state;
@@ -67,12 +52,9 @@
                 // console.log('click su searchStateFlag');
 
             }
-
-
-  
-
-
+        }
     }
+
 </script>
 
 <style lang="scss" scoped>

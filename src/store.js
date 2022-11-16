@@ -7,16 +7,16 @@ export const store = reactive({
     // VARIABILI PER I MOVIE
 
     baseURL: 'https://api.themoviedb.org/3/search/movie?api_key=63f4e64703771045ee9d77c590e22712&query=',
-    bandieraURL : 'https://countryflagsapi.com/png/',
-
     endPoint: '',
     basendPoint: 'a',
-     params: "",
-     
+    params: "",
     flagFilter: false,
-    characterList : [],
+    moviesList : [],
 
-    stateParams: "",
+    //VARIABILI PER LE FLAG
+
+    // bandieraURL : 'https://countryflagsapi.com/png/',
+    // stateParams: "",
 
     //VARIABILI PER LE SERIE
 
@@ -28,28 +28,30 @@ export const store = reactive({
     
 
     //FUNZIONE PER CICLARE TUTTI GLI ELEMENTI DELL'API DI BASE PER I MOVIE
-    getCharacters() {
+
+    getMovies() {
     
         axios.get(this.flagFilter ? this.baseURL + this.params : this.baseURL + this.basendPoint).then ((res) =>{
-            this.characterList = res.data.results;
-
-            //console.log('click su getCharacters')
-            console.log(this.flagFilter)
-            console.log(this.params)
+            this.moviesList = res.data.results;
 
         }).catch((error) => {
-            this.characterList = 0;
+            this.moviesList = 0;
 
             //INSERIRE MESSAGGIO DENTRO UN COMPONENTE DA CREAREV IN SEGUITO-------------------------------
         });
         
     },
 
+    //FUNZIONE PER CICLARE LE FLAG
+
     // getStateFlag() {
 
     //     axios.get( this.bandieraURL + this.stateParams).then ((res) => {
-    //         this.characterList.original_language = res.data.result.original_language;
-    //         console.log(this.characterList.original_language)
+    //         this.moviesList.original_language = res.data.result.original_language;
+    //         this.seriesList.original_language = res.data.result.original_language;
+    //         console.log(seriesList.original_language)
+
+    //         console.log(this.moviesList.original_language)
     //         console.log(res.data.result.original_language)
     //     })
     // },
@@ -60,11 +62,6 @@ export const store = reactive({
     
         axios.get(this.seriesFlag ? this.baseSeriesURL + this.seriesParams : this.baseSeriesURL + this.basendPoint).then ((res) =>{
             this.seriesList = res.data.results;
-
-            //console.log('click su getCharacters')
-            console.log(this.seriesFlag)
-            console.log(this.seriesParams)
-
 
         }).catch((error) => {
             this.seriesList = 0;
