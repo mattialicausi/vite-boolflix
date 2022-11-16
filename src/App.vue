@@ -29,6 +29,7 @@ import {store} from './store';
 
     created() {
             store.getCharacters();
+            store.getSeries();
         }
 }
 </script>

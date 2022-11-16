@@ -17,9 +17,18 @@
        
         name: 'CardSection',
 
+        // data () {
+        //     return {
+        //         flagName: {...movie.original_language},
+        //     }
+        // },
+
+    
         props: {
             movie: Object
-        }
+        },
+
+
         
     }
 </script>
