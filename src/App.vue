@@ -1,47 +1,39 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <HeaderComponent/>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <MainComponent />
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script>
+import HeaderComponent from './components/HeaderComponent.vue';
+import MainComponent from './components/MainComponent.vue';
+
+import axios from 'axios';
+
+import {store} from './store';
+
+  export default {
+
+    components: { 
+      HeaderComponent,
+      MainComponent
+    },
+
+    data() {
+        return {
+            store,
+        };
+    },
+
+    created() {
+            store.getCharacters();
+        }
 }
+</script>
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+<style lang="scss" scoped>
+@use './assets/styles/general.scss' as *;
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
