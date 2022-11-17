@@ -25,32 +25,15 @@
                 store,
 
                 search: '',
-
-                state: '',
             }
         },
 
         methods: {
             filterAPI() {
                 const search = this.search;
-                store.params = this.search;
-                store.getMovies();
-                store.flagFilter = true;
-
-                //FILTRO API DELLE SERIE
-                
-                store.seriesParams = this.search;
+                store.params.query = this.search;
+                store.getMovies();            
                 store.getSeries();
-                store.seriesFlag = true;
-
-                //AGGIUNGO FLAG DA API
-
-                // const state = {...this.state};
-                // store.stateParams = this.state;
-                // store.getStateFlag();
-
-                // console.log('click su searchStateFlag');
-
             }
         }
     }

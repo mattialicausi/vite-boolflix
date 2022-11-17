@@ -28,9 +28,9 @@ import {store} from './store';
     },
 
     created() {
-            store.getMovies();
-            store.getSeries();
-            //store.getStateFlag();
+            //store.getMovies();
+            //store.getSeries();
+
         }
 }
 </script>

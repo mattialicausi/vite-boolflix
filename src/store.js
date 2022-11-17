@@ -4,34 +4,38 @@ import axios from 'axios';
 
 export const store = reactive({
 
-    // VARIABILI PER I MOVIE
+    baseURL: 'https://api.themoviedb.org/3/',
 
-    baseURL: 'https://api.themoviedb.org/3/search/movie?api_key=63f4e64703771045ee9d77c590e22712&query=',
-    endPoint: '',
-    basendPoint: 'a',
-    params: "",
-    flagFilter: false,
-    moviesList : [],
+    movie: {
+        endPoint: 'search/movie',
+    },
 
-    //VARIABILI PER LE FLAG
+    series: {
+        endPoint: 'search/tv',
+    },
+   
+    params: {
 
-    // bandieraURL : 'https://countryflagsapi.com/png/',
-    // stateParams: "",
-
-    //VARIABILI PER LE SERIE
-
-    baseSeriesURL: 'https://api.themoviedb.org/3/search/tv?api_key=63f4e64703771045ee9d77c590e22712&query=',
-    endPointSeries: '',
-    seriesParams: "",
-    seriesFlag: false,
+        api_key  : '63f4e64703771045ee9d77c590e22712',
+        query: '',
+        language: 'it-IT',
+      
+    },
+ 
+    moviesList: [],
     seriesList: [],
+
     
 
     //FUNZIONE PER CICLARE TUTTI GLI ELEMENTI DELL'API DI BASE PER I MOVIE
 
     getMovies() {
+        const movieURL = this.baseURL + this.movie.endPoint;
+        //console.log(this.params)
+
+        const params = this.params
     
-        axios.get(this.flagFilter ? this.baseURL + this.params : this.baseURL + this.basendPoint).then ((res) =>{
+        axios.get(movieURL, {params}).then ((res) =>{
             this.moviesList = res.data.results;
 
         }).catch((error) => {
@@ -42,25 +46,13 @@ export const store = reactive({
         
     },
 
-    //FUNZIONE PER CICLARE LE FLAG
-
-    // getStateFlag() {
-
-    //     axios.get( this.bandieraURL + this.stateParams).then ((res) => {
-    //         this.moviesList.original_language = res.data.result.original_language;
-    //         this.seriesList.original_language = res.data.result.original_language;
-    //         console.log(seriesList.original_language)
-
-    //         console.log(this.moviesList.original_language)
-    //         console.log(res.data.result.original_language)
-    //     })
-    // },
-
     //FUNZIONI PER CICLARE LE SERIE 
 
     getSeries() {
-    
-        axios.get(this.seriesFlag ? this.baseSeriesURL + this.seriesParams : this.baseSeriesURL + this.basendPoint).then ((res) =>{
+        const seriesURL = this.baseURL + this.series.endPoint;
+        const params = this.params
+        
+        axios.get(seriesURL, {params}).then ((res) =>{
             this.seriesList = res.data.results;
 
         }).catch((error) => {
