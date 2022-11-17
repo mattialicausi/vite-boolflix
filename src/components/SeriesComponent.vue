@@ -4,13 +4,17 @@
             <h3>{{series.name}}</h3>
             <h5>{{series.original_name}}</h5>
 
+            <div class="d-flex">
+                <div v-for="n in 5" class="fa-star" :class="(n <= star) ? 'fa-solid' : 'fa-regular'"></div>
+                <span>{{series.vote_average}}</span>
+            </div>
+
             <div v-if="availableFlag.includes(series.original_language)">
                 <img class="img-flag" :src="'/images/' + series.original_language + '.png'" :alt="series.original_language">
             </div>
             <div v-else>{{series.original_language}}</div>
 
 
-            <div>{{series.vote_average}}</div>
         </div>
 </template>
 
@@ -31,6 +35,11 @@
 
                 imgPath: 'https://image.tmdb.org/t/p/w185',
 
+            }
+        },
+        computed: {
+            star() {
+                return Math.ceil(this.series.vote_average / 2)
             }
         }
         

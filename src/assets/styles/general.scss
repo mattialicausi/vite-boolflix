@@ -1,2 +1,10 @@
 //IMPORTO BOOTSTRAP NEL PROGETTO
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss'
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+//IMPORTO FONT AWESOME NEL PROGETTO
+
+$fa-font-path: '../assets/styles/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
