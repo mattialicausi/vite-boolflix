@@ -57,4 +57,6 @@ export const store = reactive({
         });
         
     },
+
+    mostraInfo: false,
 });

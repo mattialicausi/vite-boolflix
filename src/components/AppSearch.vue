@@ -1,13 +1,14 @@
 <template>
-    <section class="p-3" @keyup="changeFlag">
-        <form class="d-flex justify-content-center" @submit.prevent="filterAPI">
+    <section class="d-flex justify-content-around align-items-center h-100 mx-2" @keyup="changeFlag">
+        <h1>Boolflix</h1>
+        
+        <form class="d-flex align-items-center" @submit.prevent="filterAPI">
             <div class="container-input">
-                <label for="charactername">Search by name</label>
                 <input type="text" name="input-search-name" id="input-search-name" placeholder="Search name..." v-model.trim="search">
             </div>
 
             <div class="container-btn-submit">
-                <button type="submit" class="btn btn-primary"> Search</button>
+                <button type="submit" class="btn btn-submit"> Search</button>
             </div>
             
         </form>
@@ -42,6 +43,23 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
+
+    h1{
+        color: $title-color;
+    }
+
+    .btn-submit{
+        background-color: $title-color;
+        color: $text-color;
+        margin-left: 10px;
+    }
+
+    .btn-submit:hover{
+            background-color: $text-color;
+            color: $title-color;
+            font-weight: bold;
+    }
+
 
 
 </style>

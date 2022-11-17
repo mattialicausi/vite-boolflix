@@ -38,4 +38,5 @@ import {store} from './store';
 <style lang="scss" scoped>
 @use './assets/styles/general.scss' as *;
 
+
 </style>

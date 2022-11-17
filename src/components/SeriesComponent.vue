@@ -1,21 +1,23 @@
 <template>
     <div class="seriesCards">
-            <img :src=" series.poster_path ? imgPath + series.poster_path : 'https://via.placeholder.com/185x278'" alt="series.title">
-            <h3>{{series.name}}</h3>
-            <h5>{{series.original_name}}</h5>
+            <img class="img-content" :src=" series.poster_path ? imgPath + series.poster_path : 'https://via.placeholder.com/154x231'" alt="series.title">
 
-            <div class="d-flex">
-                <div v-for="n in 5" class="fa-star" :class="(n <= star) ? 'fa-solid' : 'fa-regular'"></div>
-                <span>{{series.vote_average}}</span>
+            <div class="container-info" v-if="!mostraInfo">
+                <h4>{{series.name}}</h4>
+                <h5>{{series.original_name}}</h5>
+
+                <div class="d-flex text-center">
+                    <div v-for="n in 5" class="fa-star" :class="(n <= star) ? 'fa-solid' : 'fa-regular'"></div>
+                    <span>{{series.vote_average}}</span>
+                </div>
+
+                <div class="text-center" v-if="availableFlag.includes(series.original_language)">
+                    <img class="img-flag" :src="'/images/' + series.original_language + '.png'" :alt="series.original_language">
+                </div>
+                <div v-else>{{series.original_language}}</div>
             </div>
 
-            <div v-if="availableFlag.includes(series.original_language)">
-                <img class="img-flag" :src="'/images/' + series.original_language + '.png'" :alt="series.original_language">
-            </div>
-            <div v-else>{{series.original_language}}</div>
-
-
-        </div>
+    </div>
 </template>
 
 <script>
@@ -33,7 +35,7 @@
                     'us', 'en', 'it', 'es', 'fr'
                 ],
 
-                imgPath: 'https://image.tmdb.org/t/p/w185',
+                imgPath: 'https://image.tmdb.org/t/p/w154',
 
             }
         },

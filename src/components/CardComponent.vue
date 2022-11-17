@@ -1,19 +1,25 @@
 <template>
 
         <div class="filmCards">
-            <img :src=" movie.poster_path ? imgPath + movie.poster_path : 'https://via.placeholder.com/185x278'" alt="movie.title">
-            <h3>{{movie.title}}</h3>
-            <h5>{{movie.original_title}}</h5>
+            <img class="img-content" :src=" movie.poster_path ? imgPath + movie.poster_path : 'https://via.placeholder.com/154x231'" alt="movie.title">
+
+            <div class="container-info" v-if="!mostraInfo">
+
+                <h4>{{movie.title}}</h4>
+                <h5>{{movie.original_title}}</h5>
             
-            <div class="d-flex">
-                <div v-for="n in 5" class="fa-star" :class="(n <= star) ? 'fa-solid' : 'fa-regular'"></div>
+                    <div class="d-flex text-center">
+                        <div v-for="n in 5" class="fa-star" :class="(n <= star) ? 'fa-solid' : 'fa-regular'"></div>
   
+                    </div>
+
+                    <div class="text-center" v-if="availableFlag.includes(movie.original_language)">
+                        <img class="img-flag" :src="'/images/' + movie.original_language + '.png'" :alt="movie.original_language">
+                    </div>
+                <div v-else>{{movie.original_language}}</div>
+
             </div>
 
-            <div v-if="availableFlag.includes(movie.original_language)">
-                <img class="img-flag" :src="'/images/' + movie.original_language + '.png'" :alt="movie.original_language">
-            </div>
-            <div v-else>{{movie.original_language}}</div>
 
 
 
@@ -39,7 +45,7 @@
                     'us', 'en', 'it', 'es', 'fr'
                 ],
 
-                imgPath: 'https://image.tmdb.org/t/p/w185',
+                imgPath: 'https://image.tmdb.org/t/p/w154',
             }
         }, 
         computed: {
@@ -59,5 +65,7 @@
     .img-flag{
         width: 30px;
     }
+
+
 
 </style>

@@ -1,18 +1,24 @@
 <template>
     <main>
-        <h2 class="text-center">Movie</h2>
-        <section class="row carousel">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" v-for="(item, index) in store.moviesList" :key="item.id">
-                <CardComponent :movie="item"/>
+        <section class="container-content position-relative">
+            <h3>Movies</h3>
+            <div class="row carousel ">
+                <div class="col  mb-5 " v-for="(item, index) in store.moviesList" :key="item.id">
+                    <CardComponent :movie="item"/>
+                </div>
             </div>
         </section>
 
-        <h2 class="text-center m-5">Series</h2>
-        <section class="row carousel">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5" v-for="(item, index) in store.seriesList" :key="item.id">
-                <SeriesComponent :series="item"/>
+
+        <section class="container-content position-relative">
+            <h3>Series</h3>
+            <div class="row carousel">
+                <div class="col mb-5" v-for="(item, index) in store.seriesList" :key="item.id">
+                    <SeriesComponent :series="item"/>
+                </div>
             </div>
         </section>
+
 
         
     </main>
@@ -43,6 +49,14 @@
 .carousel {
     overflow-x: auto;
     flex-wrap: nowrap;
+}
+
+h3{
+    color: $text-color;
+    z-index:100;
+    position: absolute;
+    top: 0;
+    left: 20px
 }
 
 
