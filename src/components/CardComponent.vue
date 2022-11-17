@@ -1,7 +1,7 @@
 <template>
 
         <div class="filmCards">
-            <img src="#" alt="#">
+            <img :src=" movie.poster_path ? imgPath + movie.poster_path : 'https://via.placeholder.com/185x278'" alt="movie.title">
             <h3>{{movie.title}}</h3>
             <h5>{{movie.original_title}}</h5>
 
@@ -33,6 +33,8 @@
                 availableFlag: [
                     'us', 'en', 'it', 'es', 'fr'
                 ],
+
+                imgPath: 'https://image.tmdb.org/t/p/w185',
             }
         }
 

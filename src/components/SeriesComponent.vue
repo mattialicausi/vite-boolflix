@@ -1,6 +1,6 @@
 <template>
     <div class="seriesCards">
-            <img src="#" alt="#">
+            <img :src=" series.poster_path ? imgPath + series.poster_path : 'https://via.placeholder.com/185x278'" alt="series.title">
             <h3>{{series.name}}</h3>
             <h5>{{series.original_name}}</h5>
 
@@ -28,6 +28,9 @@
                 availableFlag: [
                     'us', 'en', 'it', 'es', 'fr'
                 ],
+
+                imgPath: 'https://image.tmdb.org/t/p/w185',
+
             }
         }
         

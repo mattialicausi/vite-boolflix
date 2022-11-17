@@ -6,12 +6,9 @@ export const store = reactive({
 
     baseURL: 'https://api.themoviedb.org/3/',
 
-    movie: {
-        endPoint: 'search/movie',
-    },
-
-    series: {
-        endPoint: 'search/tv',
+    endPoint: {
+        movie: 'search/movie',
+        series: 'search/tv',
     },
    
     params: {
@@ -19,18 +16,16 @@ export const store = reactive({
         api_key  : '63f4e64703771045ee9d77c590e22712',
         query: '',
         language: 'it-IT',
-      
     },
  
     moviesList: [],
     seriesList: [],
 
-    
 
     //FUNZIONE PER CICLARE TUTTI GLI ELEMENTI DELL'API DI BASE PER I MOVIE
 
     getMovies() {
-        const movieURL = this.baseURL + this.movie.endPoint;
+        const movieURL = this.baseURL + this.endPoint.movie;
         //console.log(this.params)
 
         const params = this.params
@@ -49,7 +44,7 @@ export const store = reactive({
     //FUNZIONI PER CICLARE LE SERIE 
 
     getSeries() {
-        const seriesURL = this.baseURL + this.series.endPoint;
+        const seriesURL = this.baseURL + this.endPoint.series;
         const params = this.params
         
         axios.get(seriesURL, {params}).then ((res) =>{
