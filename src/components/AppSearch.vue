@@ -7,6 +7,12 @@
                 <input type="text" name="input-search-name" id="input-search-name" placeholder="Search name..." v-model.trim="search">
             </div>
 
+            <select name="filterMovie" id="filterMovie">
+                <option selected value="">Choose movie</option>
+                <option value="" v-for="(genere, index) in store.genres.genres[index]" :key="index">{{genere}}</option>
+            </select>
+
+
             <div class="container-btn-submit">
                 <button type="submit" class="btn btn-submit"> Search</button>
             </div>
@@ -25,6 +31,9 @@
             return {
                 store,
 
+                genereOptions: store.genres.genres,
+
+
                 search: '',
             }
         },
@@ -35,6 +44,7 @@
                 store.params.query = this.search;
                 store.getMovies();            
                 store.getSeries();
+                console.log(this.statusOptions)
             }
         }
     }
@@ -43,12 +53,7 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
-    section {
-        // position: sticky;
-        // top: 0;
-        // left: 0;
-        // z-index: 1000;
-    }
+
 
     h1{
         color: $title-color;
