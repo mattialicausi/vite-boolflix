@@ -9,6 +9,7 @@ export const store = reactive({
     endPoint: {
         movie: 'search/movie',
         series: 'search/tv',
+        mostPopular: 'movie/popular',
     },
    
     params: {
@@ -20,6 +21,7 @@ export const store = reactive({
  
     moviesList: [],
     seriesList: [],
+    mostPopularList: [],
 
 
     //FUNZIONE PER CICLARE TUTTI GLI ELEMENTI DELL'API DI BASE PER I MOVIE
@@ -57,6 +59,17 @@ export const store = reactive({
         });
         
     },
+
+    getMostPopular(){
+        const movieURL = this.baseURL + this.endPoint.mostPopular;
+        const params = this.params;
+
+        axios.get(movieURL, {params}).then ((res) => {
+            this.mostPopularList = res.data.results;
+        }).catch((error) => {
+            this.mostPopularList = 0;
+        })
+    }
 
     
 });

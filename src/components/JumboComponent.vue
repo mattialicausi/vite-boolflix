@@ -1,13 +1,37 @@
 <template>
     <section class="jumbo-section">
-        Jumbo
+       <div class="container-content-jumbo">
+            <div class="container-img">
+               <img :src=" mostPopular.poster_path ? imgPath + mostPopular.poster_path : 'https://via.placeholder.com/154x231'" :alt="mostPopular.title">
+            </div>
+            <div class="container-info-jumbo">
+                <h2>{{mostPopular.title}}</h2>
+                <p>{{mostPopular.overview}}</p>
+            </div>
+       </div>
     </section>
 </template>
 
 <script>
+
+//import { store } from '../store';
+
     export default {
-        name: 'JumboComponent'
+        name: 'JumboComponent',
+
+        data() {
+            return {
+                //store,
+                imgPath: 'https://image.tmdb.org/t/p/w154',
+               
+
+            }
+        }, 
+        props: {
+            mostPopular: Object,
+        }
     }
+
 </script>
 
 <style lang="scss" scoped>
@@ -15,6 +39,24 @@
 
 .jumbo-section{
     color: $text-color;
+    margin-top: 10vh;
+    position: relative;
+}
+
+.container-info-jumbo{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 50%;
+}
+
+.container-img{
+    width: 100%;
+
+    img{
+        width: 100%;
+        height: 70vh;
+    }
 }
 
 </style>

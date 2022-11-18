@@ -2,7 +2,7 @@
 
         <div class="filmCards" @mouseover="showInfo" @mouseleave="showInfo">
 
-            <img class="img-content" :src=" movie.poster_path ? imgPath + movie.poster_path : 'https://via.placeholder.com/154x231'" alt="movie.title">
+            <img class="img-content" :src=" movie.poster_path ? imgPath + movie.poster_path : 'https://via.placeholder.com/154x231'" :alt="movie.title">
             <div class="container-info " v-if="mostraInfo">
 
                 <h4>{{movie.title}}</h4>

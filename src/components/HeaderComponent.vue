@@ -3,7 +3,13 @@
         <AppSearch/>
     </header>
 
-    <JumboComponent/>
+    <div class="row carousel">
+        <div class="col-12" v-for="(item, index) in store.mostPopularList" :key="item.id">
+            <JumboComponent :mostPopular="item"/>
+        </div>
+    </div>
+    
+    
 
 </template>
 
@@ -21,14 +27,19 @@
     },
     components: { 
         AppSearch,
-         JumboComponent 
-        }
+        JumboComponent 
+    },
+
+
 }
 </script>
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
-
+    .carousel {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
 
     header {
         width: 100%;
