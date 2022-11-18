@@ -1,5 +1,5 @@
 <template>
-    <section class="d-flex justify-content-around align-items-center h-100 mx-2" @keyup="changeFlag">
+    <section class="d-flex justify-content-around align-items-center h-100 mx-2">
         <h1>Boolflix</h1>
         
         <form class="d-flex align-items-center" @submit.prevent="filterAPI">

@@ -36,7 +36,7 @@ export const store = reactive({
         }).catch((error) => {
             this.moviesList = 0;
 
-            //INSERIRE MESSAGGIO DENTRO UN COMPONENTE DA CREAREV IN SEGUITO-------------------------------
+            //INSERIRE MESSAGGIO DENTRO UN COMPONENTE DA CREARE IN SEGUITO-------------------------------
         });
         
     },
@@ -53,10 +53,10 @@ export const store = reactive({
         }).catch((error) => {
             this.seriesList = 0;
 
-            //INSERIRE MESSAGGIO DENTRO UN COMPONENTE DA CREAREV IN SEGUITO-------------------------------
+            //INSERIRE MESSAGGIO DENTRO UN COMPONENTE DA CREARE IN SEGUITO-------------------------------
         });
         
     },
 
-    mostraInfo: false,
+    
 });

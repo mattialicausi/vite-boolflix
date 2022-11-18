@@ -2,8 +2,8 @@
     <main>
         <section class="container-content position-relative">
             <h3>Movies</h3>
-            <div class="row carousel ">
-                <div class="col  mb-5 " v-for="(item, index) in store.moviesList" :key="item.id">
+            <div class="row carousel">
+                <div class="col mb-5 container-card" v-for="(item, index) in store.moviesList" :key="item.id">
                     <CardComponent :movie="item"/>
                 </div>
             </div>
@@ -13,14 +13,12 @@
         <section class="container-content position-relative">
             <h3>Series</h3>
             <div class="row carousel">
-                <div class="col mb-5" v-for="(item, index) in store.seriesList" :key="item.id">
+                <div class="col mb-5 container-card" v-for="(item, index) in store.seriesList" :key="item.id">
                     <SeriesComponent :series="item"/>
                 </div>
             </div>
         </section>
 
-
-        
     </main>
 </template>
 
@@ -39,7 +37,8 @@
     components: { 
         CardComponent,
         SeriesComponent,
-    }
+    },
+
 }
 </script>
 
@@ -59,5 +58,10 @@ h3{
     left: 20px
 }
 
+.container-card{
+    width: 154px;
+    height: 231px;
+    margin: 10px;
+}
 
 </style>
