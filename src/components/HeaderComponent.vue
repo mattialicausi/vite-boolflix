@@ -42,7 +42,13 @@
     }
 
     header {
+        background-color: rgba(20, 20, 20);
         width: 100%;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: transparent;
     }
 
 </style>

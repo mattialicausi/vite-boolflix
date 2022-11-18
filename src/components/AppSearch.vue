@@ -43,6 +43,12 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
+    section {
+        // position: sticky;
+        // top: 0;
+        // left: 0;
+        // z-index: 1000;
+    }
 
     h1{
         color: $title-color;

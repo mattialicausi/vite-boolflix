@@ -14,15 +14,13 @@
 
 <script>
 
-//import { store } from '../store';
-
     export default {
         name: 'JumboComponent',
 
         data() {
             return {
-                //store,
-                imgPath: 'https://image.tmdb.org/t/p/w154',
+
+                imgPath: 'https://image.tmdb.org/t/p/w1280',
                
 
             }
@@ -39,7 +37,7 @@
 
 .jumbo-section{
     color: $text-color;
-    margin-top: 10vh;
+    // margin-top: 10vh;
     position: relative;
 }
 
@@ -52,10 +50,13 @@
 
 .container-img{
     width: 100%;
+    
 
     img{
         width: 100%;
-        height: 70vh;
+        height: 100%;
+        object-position: center;
+        overflow-y: hidden;
     }
 }
 
